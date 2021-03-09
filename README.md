@@ -1,1 +1,1 @@
-# elapce-gatsby
+# Gatsby Elapce redesign
