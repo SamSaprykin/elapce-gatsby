@@ -49,6 +49,7 @@ const SubscribeSection = ({
           <InputContainer>
             <StyledInput 
               placeholder="Цена" 
+              className="second-input"
               type="email" 
               name="email"
               id="email" 
@@ -57,7 +58,7 @@ const SubscribeSection = ({
           {ctaInfo && (
             <ButtonCta type="submit" >
               <h5>{ctaText}</h5>
-              <span>{ctaInfo}</span>
+              
             </ButtonCta>
           )}
         </SubscribeForm>
@@ -76,6 +77,7 @@ const SubscribeWrapper = styled.div`
     align-items:center;
     padding:0 0 32px;
     position:relative;
+    z-index:11;
     border-top: ${({ type }) => {
       if (type === "small") return "1px solid #f2f3f5"
       if (type === "big") return ""
@@ -99,7 +101,7 @@ const SubscribeWrapper = styled.div`
 
 const FormInfo = styled.div`
     width:100%;
-    max-width:680px;
+    max-width: 800px;
     margin-bottom:32px;
     text-align:left;
     font-family:Inter,system-ui,sans-serif;
@@ -129,6 +131,12 @@ const SubscribeTitle = styled.h2`
         if (type === "big") return "38px"
       }};
     }
+    @media ${device.tablet} {
+      font-size: ${({ type }) => {
+        if (type === "small") return "24px"
+        if (type === "big") return "28px"
+      }};
+    }
 `
 const SubscribeFormText = styled.p`
     font-size:20px;
@@ -151,25 +159,35 @@ const SubscribeFormText = styled.p`
 const SubscribeForm = styled.form`
     margin:0 auto;
     width:100%;
-    background: rgba( 255, 255, 255, 0.15 );
+    background: rgba( 255, 255, 255, 0.3 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.0px );
     -webkit-backdrop-filter: blur( 13.0px );
     border-radius: 4px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    padding:32px;
+    border: 1px solid rgba( 255, 255, 255, 0.3 );
+    padding:16px;
     position:absolute;
     z-index:10;
     max-width: ${({ type }) => {
-      if (type === "small") return "500px"
-      if (type === "big") return "600px"
+      if (type === "small") return "800px"
+      if (type === "big") return "800px"
     }};
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     position:relative;
+    .second-input {
+      border-left: 2px solid rgba(158, 193, 225, 0.5);
+      padding-left:12px;
+      @media ${device.tablet} {
+        border:none;
+        padding:0;
+      }
+    }
+      
     
     @media ${device.tablet} {
-      max-width:400px;
+      flex-direction:column;
+      max-width:320px;
       margin:0;
       background: rgba( 255, 255, 255, 0.35 );
       border: 1px solid rgba( 255, 255, 255, 0.35 );
@@ -184,32 +202,11 @@ const InputContainer = styled.div`
     width:100%;
     height:auto;
     position:relative;
-    height:46px;
-    margin-bottom:16px;
-    button {
-        height:46px;
-        font-family: sans-serif;
-        line-height: 1.3em;
-        letter-spacing:0.1px;
-        font-size:16px;
-        background: rgb(67, 100, 175);
-        color: rgb(255, 255, 255);
-        border: 0px solid rgb(67, 100, 175);
-        width: 100%;
-        max-width:101px;
-        position:relative;
-        right:0px;
-        outline:none;
-        cursor:pointer;
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        padding-top: 8px !important;
-        padding-bottom: 8px !important;
-        border-radius: 0px 3px 3px 0px !important;
+    @media ${device.tablet} {
+      padding-right:12px;
+      margin-bottom:12px;
     }
-    @media ${device.mobileL} {
-        height:70px;
-    }
+  
 `
 const ButtonCta = styled.button`
   height:auto;
@@ -218,46 +215,46 @@ const ButtonCta = styled.button`
   color: rgb(255, 255, 255);
   border: 0px solid rgb(67, 100, 175);
   width: 100%;
+  max-width:140px;
   position:relative;
   right:0px;
   outline:none;
   cursor:pointer;
   padding:13px 20px;
   border-radius: 0px 3px 3px 0px !important;
-  margin-top:8px;
   transition:all .3s ease-in-out;
+  @media ${device.tablet} {
+    max-width:100%;
+  }
   :hover {
     opacity:1;
   }
   h5 {
     margin-bottom:0;
-    font-size:20px;
+    font-size:16px;
     line-height:24px;
     color:white;
-    font-family:Inter,system-ui,sans-serif;
+    font-family:Lato;
     font-weight:500;
-  }
-  span {
-    margin-bottom:0;
-    font-size:11px;
-    color:white;
-    font-family:Inter,system-ui,sans-serif;
-    font-weight:300;
   }
 `
 
 const StyledInput = styled.input`
-    margin-bottom: 16px;
     width: 100%;
     border: none;
-    border-bottom: 1px solid #3e444e;
     font-weight: 500;
-    font-size: 18px;
-    font-family:Inter,system-ui,sans-serif;
+    font-size: 16px;
+    font-family:Lato;
     line-height: 20px;
     background-position: center right;
-    min-height: 52px;
+    height: 50px;
     color: #2F3B43;
-    background: url(../images/ellipsis.png) no-repeat;  
+    background: url(/ellipsis.png) no-repeat;  
+    background-position: center right;
     outline:none;
+    max-width: 200px;
+    @media ${device.tablet} {
+      max-width:100%;
+      height:50px;
+    }
 `

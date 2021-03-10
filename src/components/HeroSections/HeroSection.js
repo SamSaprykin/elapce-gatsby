@@ -6,10 +6,6 @@ import SubscribeSection from "../SubscribeSection/SubscribeSection"
 import { Container } from "../layoutComponents"
 import { device } from "../../styles/constants"
 
-
-
-
-
 const HeroSection = ({
   width,
   headline,
@@ -31,36 +27,56 @@ const HeroSection = ({
   }
   
   return (
-    <Container>
-      <SectionSideBySide
-        contentSide={
-          <SubscribeSection 
-            title={otherProps.title}
-            text={otherProps.text}
-            ctaText={otherProps.ctaText}
-            ctaInfo={otherProps.ctaInfo}
-            type="big"
-          />
-        }
-        imageSide={
-          <HeroImageSide>
-            <ScreenshotVideo>
-              <XperiencifyImage
-                src={heroImage?.localFile?.childImageSharp || heroImage?.source_url || heroImage}
-                alt="hero image"
-              />
-            </ScreenshotVideo>
-            
-          </HeroImageSide>
-        }
-        reversed={reversed}
-        small={small}
-      />
-    </Container>
+    <HeroWrapper>
+      <Container>
+        <SectionSideBySide
+          contentSide={
+            <SubscribeSection 
+              title={otherProps.title}
+              text={otherProps.text}
+              ctaText={otherProps.ctaText}
+              ctaInfo={otherProps.ctaInfo}
+              type="big"
+            />
+          }
+          imageSide={
+            <HeroImageSide>
+              <ScreenshotVideo>
+                <XperiencifyImage
+                  src={heroImage?.localFile?.childImageSharp || heroImage?.source_url || heroImage}
+                  alt="hero image"
+                />
+              </ScreenshotVideo>
+              
+            </HeroImageSide>
+          }
+          reversed={reversed}
+          small={small}
+        />
+      </Container>
+    </HeroWrapper>
+   
   )
 }
 
 export default HeroSection
+
+const HeroWrapper = styled.div`
+  margin-bottom:240px;
+  position: relative;
+  ::after {
+    content: "";
+    position: absolute; 
+    width: 800px;
+    height: 100%;
+    top: -100px;
+    right: 0;
+    z-index: -1;
+    background-image: url(/orange-circles-main.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+`
 
 const HeroImageSide = styled.div`
   position: relative;
@@ -71,7 +87,6 @@ const HeroImageSide = styled.div`
     margin-bottom: 16px;
   }
   @media ${device.tablet} {
-    padding-bottom:250px;
     display:flex;
     justify-content:flex-end;
   }
@@ -84,22 +99,30 @@ const HeroImageSide = styled.div`
 const ScreenshotVideo = styled.div`
   position: absolute;
   left:0;
-  top:-20px;
+  top:0px;
   width: 1250px;
   display: block;
   border-radius: 16px;
   margin: 0 0 0 -200px;
   overflow: hidden;
   @media (max-width:1600px) {
-    width: 1080px;
+    width: 1050px;
+  }
+  @media ${device.laptop} {
+    width: 800px;
   }
   @media ${device.tablet} {
     margin: 0;
-    margin-top:-200px;
+    margin-top:-250px;
     left:0;
     top:0;
     width:110%;
     left:10%;
+  }
+  @media ${device.mobileL} {
+    margin-top:-100px;
+    left:0%;
+    width:150%;
   }
 `
 

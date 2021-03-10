@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { useStaticQuery, graphql } from "gatsby"
 import HeroSection from "../components/HeroSections/HeroSection"
 import TrustBar from "../components/TrusBar/TrustBar"
 import ProductWorkflow from "../components/ProductWorkflow/ProductWorkflow"
@@ -14,9 +15,6 @@ const heroIndexData = {
     ctaInfo:"более 5000 объектов в 32 странах мира",
     textTrial:""
   },
-  imageData:{
-    imageSrc:"/buildings.png"
-  }
 }
 
 const trustBarData = {
@@ -97,12 +95,23 @@ const productReviewsData = {
 }
 
 const IndexPage = () => {
-    
+    const buildings = useStaticQuery(graphql`
+    query {
+        file(absolutePath: {regex: "/buildings.png/"}) {
+        childImageSharp {
+          fluid(maxWidth: 900) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  console.log(buildings.file.childImageSharp)
   return (
   <Layout>
-      <SEO title="Xperiencify" keywords={[`Xperiencify`, `courses guide`, `courses`]} />
+      <SEO title="Elapce" keywords={[`Elapce`, `real estate`, `overseas`]} />
       <HeroSection 
-        heroImage={heroIndexData.imageData.imageSrc}
+        heroImage={buildings.file.childImageSharp}
         title={heroIndexData.contentData.title}
         text={heroIndexData.contentData.text}
         ctaText={heroIndexData.contentData.ctaText}

@@ -7,10 +7,7 @@ export const MainWrapper = styled.div`
   overflow:hidden;
   min-height: 100vh;
   flex-direction: column;
-  
-  @media (max-width: 425px) {
-    margin-top: 96px;
-  }
+
   .scroll-header {
     background-color:white;
     box-shadow:4px 14px 35px rgba(6,13, 54, 0.08);

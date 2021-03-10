@@ -188,6 +188,7 @@ const StyledUl = styled.div`
   
   @media ${device.tablet} {
     padding:1.5rem 0;
+    height:80px;
   }
   @media ${device.mobileL} {
     background-color: white; 
@@ -435,7 +436,7 @@ const MobileNumber = styled.a`
   line-height: 1.1;
   text-decoration: none;
   color: #4B535F;
-  @media ${device.laptop} {
+  @media (max-width:1200px) {
     display:none;
   }
 `

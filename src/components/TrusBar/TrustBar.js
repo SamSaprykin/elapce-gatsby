@@ -43,6 +43,7 @@ const StyledLogo = styled.div`
     display:flex;
     align-items: center;
     padding: 1rem;
+    
     @media ${device.tablet} {
         width:33%;
         justify-content: center;
@@ -55,7 +56,7 @@ const StyledLogo = styled.div`
 
 const TrustBarWrapper = styled.div`
   width: 100%;
-  padding:160px 2rem 96px;
+  padding:96px 2rem;
   text-align: center;
   position:relative;
   margin: ${props => props.margin};

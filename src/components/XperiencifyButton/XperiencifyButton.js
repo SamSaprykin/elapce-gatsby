@@ -45,11 +45,11 @@ XperiencifyButton.defaultProps = {
 }
 
 const BignetworkButtonStyled = styled.button`
-  font-family:Inter,system-ui,sans-serif;
+  font-family:Lato;
   font-weight: 500;
   display: block;
   border-radius: 4px;
-  font-size: 14px !important;
+  font-size: 16px !important;
   letter-spacing: 0;
   line-height: 1.1 !important;
   text-align: center;
