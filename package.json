@@ -37,7 +37,9 @@
     "react-helmet": "^5.2.1",
     "react-intersection-observer": "^8.31.0",
     "react-modal": "^3.12.1",
+    "react-slick": "^0.28.1",
     "rehype-react": "^6.2.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^4.4.0",
     "typeface-inter": "^3.15.1",
     "typeface-lato": "^1.1.13"
