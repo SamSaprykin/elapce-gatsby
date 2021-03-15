@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { device } from "../../styles/constants"
 import { Container } from "../layoutComponents"
 import {
-    XperiencifyImage,
+    ElapceImage,
 } from "../BlockElements/BlockElements"
 const ProductReviews = ({
   reviewsData,
@@ -21,7 +21,7 @@ const ProductReviews = ({
                             reviewsData.map((review,index) => {
                                 return (
                                     <ReviewItem key={index}>
-                                        <XperiencifyImage
+                                        <ElapceImage
                                             width="180" 
                                             height="32"
                                             src={review.logo}

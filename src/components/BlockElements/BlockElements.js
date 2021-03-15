@@ -4,10 +4,10 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import { device } from "../../styles/constants"
 /*
-  Xperiencify Content
+  Elapce Content
 */
 
-export const XperiencifyContent = ({
+export const ElapceContent = ({
   children,
   alignContent,
   width,
@@ -21,29 +21,32 @@ export const XperiencifyContent = ({
   )
 }
 
-XperiencifyContent.propTypes = {
+ElapceContent.propTypes = {
   alignContent: PropTypes.string, // 'left', 'center', 'right', 'justify'
   width: PropTypes.string,
 }
 
-XperiencifyContent.defaultProps = {
+ElapceContent.defaultProps = {
   alignContent: "left",
   width: "100%",
 }
 
 const MainDiv = styled.div`
-  font-family: DM Sans;
+  font-family: Lato;
   text-align: ${props => props.alignContent};
   width: ${props => props.width};
   max-width: 1070px;
   margin: 0 auto;
+  @media ${device.tablet} {
+    width:100%;
+  }
 `
 
 /*
-  BigNetworkTitle
+  Elapce title
 */
 
-export const XperiencifyTitle = ({
+export const ElapceTitle = ({
   children,
   fontSize,
   color,
@@ -66,24 +69,24 @@ export const XperiencifyTitle = ({
   )
 }
 
-XperiencifyTitle.propTypes = {
+ElapceTitle.propTypes = {
   fontSize: PropTypes.string, // 'big', 'normal', 'small', '49px', '5em'
   color: PropTypes.string,
   marginBottom: PropTypes.string,
   alignContent: PropTypes.string,
 }
 
-XperiencifyTitle.defaultProps = {
+ElapceTitle.defaultProps = {
   fontSize: "big",
-  color: "#090909",
+  color: "#4B535F",
   marginBottom: "24px",
-  alignContent: "center",
+  alignContent: "left",
 }
 
 const TitleH2 = styled.h2`
-  font-family: DM Sans;
-  font-weight: 700;
+  font-family: Gotham Pro;
   text-align: ${props => props.alignContent};
+  font-weight: 500;
   font-size: ${props =>
     props.fontSize === "big"
       ? "48px"
@@ -138,16 +141,13 @@ const TitleH2 = styled.h2`
         ? "28px"
         : props.fontSize};
   }
-  text-transform:uppercase;
-  letter-spacing:2px;
-
 `
 
 /*
-  BigNetwork Subhead
+  Elapce Subhead
 */
 
-export const XperiencifySubhead = ({
+export const ElapceSubhead = ({
   children,
   fontSize,
   color,
@@ -168,20 +168,20 @@ export const XperiencifySubhead = ({
   )
 }
 
-XperiencifySubhead.propTypes = {
+ElapceSubhead.propTypes = {
   fontSize: PropTypes.string, // 'big', 'normal', 'small', '49px', '5em'
   color: PropTypes.string,
   marginBottom: PropTypes.string,
 }
 
-XperiencifySubhead.defaultProps = {
+ElapceSubhead.defaultProps = {
   fontSize: "normal",
   color: "#222028",
   marginBottom: "32px",
 }
 
 const Subhead = styled.h5`
-  font-family: DM Sans;
+  font-family: Lato;
   display: inline-block;
   font-weight:400;
   font-size: ${props =>
@@ -197,7 +197,91 @@ const Subhead = styled.h5`
   margin-bottom: ${props => props.marginBottom};
 `
 
+/*
+  Elapce Text
+  
+*/
 
+export const ElapceText= ({
+  children,
+  fontSize,
+  color,
+  marginTop,
+  marginBottom,
+  className,
+  ...otherProps
+}) => {
+  return (
+    <Text
+      fontSize={fontSize}
+      color={color}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      className={className}
+      {...otherProps}
+    >
+      {children}
+    </Text>
+  )
+}
+
+ElapceText.propTypes = {
+  fontSize: PropTypes.string, // 'big', 'normal', 'small', '49px', '5em'
+  color: PropTypes.string,
+  marginTop: PropTypes.string, // '24px', '0', '3em'
+  marginBottom: PropTypes.string,
+}
+
+ElapceText.defaultProps = {
+  fontSize: "normal",
+  color: "black",
+  marginTop: "24px",
+  marginBottom: "24px",
+}
+
+const Text = styled.p`
+  font-family: Lato;
+  letter-spacing: 0;
+  font-size: ${props =>
+    props.fontSize === "big"
+      ? "22px"
+      : props.fontSize === "normal"
+      ? "18px"
+      : props.fontSize === "small"
+      ? "16px"
+      : props.fontSize};
+  line-height: 150%;
+  color: ${props => props.color};
+  opacity:.7;
+  margin: 0;
+  margin-top: ${props => props.marginTop};
+  margin-bottom: ${props => props.marginBottom};
+  font-weight: 500;
+  font-style: normal;
+  white-space: pre-wrap;
+
+  @media (max-width: 768px) {
+    font-size: ${props =>
+      props.fontSize === "big"
+        ? "22px"
+        : props.fontSize === "normal"
+        ? "18px"
+        : props.fontSize === "small"
+        ? "16px"
+        : props.fontSize};
+  }
+  @media (max-width: 576px) {
+    font-size: ${props =>
+      props.fontSize === "big"
+        ? "18px"
+        : props.fontSize === "normal"
+        ? "15px"
+        : props.fontSize === "small"
+        ? "13px"
+        : props.fontSize};
+    
+  }
+`
 
 /**
  * Using Gatsby-image to output images.
@@ -210,7 +294,7 @@ const Subhead = styled.h5`
  */
 // @TODO: Properly add alt text
 
-export const XperiencifyImage = ({ src, alt, className, ...otherProps }) => {
+export const ElapceImage = ({ src, alt, className, ...otherProps }) => {
   
   if (src?.fluid || src?.childImageSharp?.fluid) {
     return (

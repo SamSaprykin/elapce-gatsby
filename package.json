@@ -6,11 +6,13 @@
   "author": "Murray Gray",
   "dependencies": {
     "@contentful/rich-text-types": "^14.1.2",
+    "antd": "^4.13.1",
     "babel-plugin-styled-components": "^1.11.1",
     "framer-motion": "^3.10.1",
     "gatsby": "^2.25.0",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-anchor-links": "^1.2.1",
+    "gatsby-plugin-antd": "^2.2.0",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^3.0.18",
     "gatsby-plugin-preact": "^5.0.0",

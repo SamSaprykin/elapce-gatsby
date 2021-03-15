@@ -12,7 +12,7 @@ import { device } from "../../styles/constants"
 */
 
 
-const XperiencifyButton = ({
+const ElapceButton = ({
     type, 
     children,
     toRoute, 
@@ -28,23 +28,23 @@ const XperiencifyButton = ({
   return (
     <>
       <Link to={toRoute}>
-        <BignetworkButtonStyled type={type} disabled={disabled} sizeType={sizeType} htmlType={htmlType} {...otherProps}>
+        <ElapceButtonStyled type={type} disabled={disabled} sizeType={sizeType} htmlType={htmlType} {...otherProps}>
           { children }
-        </BignetworkButtonStyled>
+        </ElapceButtonStyled>
       </Link>
     </>
   )
 }
 
-XperiencifyButton.propTypes = {
+ElapceButton.propTypes = {
     type: PropTypes.string, 
 }
   
-XperiencifyButton.defaultProps = {
+ElapceButton.defaultProps = {
     type: "primary", 
 }
 
-const BignetworkButtonStyled = styled.button`
+const ElapceButtonStyled = styled.button`
   font-family:Lato;
   font-weight: 500;
   display: block;
@@ -128,4 +128,4 @@ const BignetworkButtonStyled = styled.button`
   } 
 `
 
-export default XperiencifyButton
+export default ElapceButton

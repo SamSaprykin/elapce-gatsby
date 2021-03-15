@@ -47,7 +47,7 @@ module.exports = {
           },
         ]
       }
-    },
+    }, 
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
@@ -57,6 +57,7 @@ module.exports = {
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-antd`, 
     {
       resolve: `gatsby-plugin-offline`,
       options: {

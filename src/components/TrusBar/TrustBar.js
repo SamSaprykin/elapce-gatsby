@@ -2,22 +2,22 @@ import React from "react"
 import styled from "styled-components"
 import { device } from "../../styles/constants"
 import {
-  XperiencifyImage,
-  XperiencifyContent,
+  ElapceImage,
+  ElapceContent,
 } from "../BlockElements/BlockElements"
 import { Container } from "../layoutComponents"
 const TrustBar = ({ logoImages, margin, headline }) => {
   return (
     <TrustBarWrapper justify="center" align="middle" margin={margin}>
       <Container>
-        <XperiencifyContent alignContent="center">
+        <ElapceContent alignContent="center">
             <TrustBarHeading>{headline}</TrustBarHeading>
-        </XperiencifyContent>
+        </ElapceContent>
         <TrustBarLogos justify="space-between">
             {logoImages?.map((image, index) => {
             return (
                 <StyledLogo key={index}>
-                    <XperiencifyImage
+                    <ElapceImage
                         width="106" 
                         height="60"
                         src={

@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { device, colors } from "../styles/constants"
 import SimpleDropdown from "./menuComponents/simpleDropdown"
 import { Container } from "./layoutComponents"
-import XperiencifyButton from "./XperiencifyButton/XperiencifyButton"
+import ElapceButton from "./ElapceButton/ElapceButton"
 
 const tempNavLinks = [
   {
@@ -153,9 +153,9 @@ const Navigation = () => {
                 <RightSide>
                     
                     <CtaWrapper>
-                          <XperiencifyButton type="tertiary" toRoute="/" sizeType="big">
+                          <ElapceButton type="tertiary" toRoute="/" sizeType="big">
                             Отправить заявку
-                          </XperiencifyButton>
+                          </ElapceButton>
                     </CtaWrapper>
                     <Toggle
                         navbarOpen={navbarOpen}
@@ -182,7 +182,7 @@ const StyledUl = styled.div`
   background-color: transparent;
   position:fixed;
   top:0;
-  z-index:100;
+  z-index:10000;
   height:100px;
   animation: all .2s ease-in-out;
   
@@ -190,9 +190,7 @@ const StyledUl = styled.div`
     padding:1.5rem 0;
     height:80px;
   }
-  @media ${device.mobileL} {
-    background-color: white; 
-  }
+
 `;
 
 

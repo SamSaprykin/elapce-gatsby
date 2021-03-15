@@ -14,6 +14,7 @@ export default function SectionSideBySide({
   maxWidth,
   ...otherProps
 }) {
+  
   return (
     <SectionLayout>
       <SectionRow
@@ -46,8 +47,8 @@ SectionSideBySide.propTypes = {
 
 SectionSideBySide.defaultProps = {
   reversed: false,
-  align: "middle",
-  justify: "center",
+  align: "flex-start",
+  justify: "space-between",
   maxWidth: "990px",
 }
 
@@ -55,17 +56,16 @@ const SectionRow = styled.div`
   margin-left: 0px !important;
   margin-right: 0px !important;
   display:flex;
-  justify-content:space-between;
-  @media (max-width: 576px) {
-    ${props =>
-      props.reversed
-        ? `
-          flex-direction: row-reverse;
-        `
-        : ``};
-  }
+  justify-content:${props => props.justify};
+  align-items:${props => props.align};
+  flex-direction:row;
+ 
+  
   @media ${device.tablet} {
-    flex-direction:column;
+    flex-direction:${props =>
+      props.reversed === true
+        ? "column-reverse"
+        : "column"};
   }
 `
 

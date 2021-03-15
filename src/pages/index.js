@@ -6,6 +6,7 @@ import HeroSection from "../components/HeroSections/HeroSection"
 import TrustBar from "../components/TrusBar/TrustBar"
 import ProductWorkflow from "../components/ProductWorkflow/ProductWorkflow"
 import ProductReviews from "../components/ProductReviews/ProductReviews"
+import BestOptions from "../components/BestOptions/BestOptions"
 
 const heroIndexData = {
   contentData:{
@@ -15,6 +16,11 @@ const heroIndexData = {
     ctaInfo:"более 5000 объектов в 32 странах мира",
     textTrial:""
   },
+}
+
+const BestOptionsData = {
+  title:"Лучшие предложения",
+  text:"Нашей приоритетной целью является предоставление полной и прозрачной информации нашим клиентам. С другой стороны дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки дальнейших направлений развития. Равным образом дальнейшее развитие различных форм деятельности позволяет оценить значение модели развития.",
 }
 
 const trustBarData = {
@@ -95,7 +101,8 @@ const productReviewsData = {
 }
 
 const IndexPage = () => {
-    const buildings = useStaticQuery(graphql`
+  
+  const buildings = useStaticQuery(graphql`
     query {
         file(absolutePath: {regex: "/buildings.png/"}) {
         childImageSharp {
@@ -106,7 +113,7 @@ const IndexPage = () => {
       }
     }
   `)
-  console.log(buildings.file.childImageSharp)
+  
   return (
   <Layout>
       <SEO title="Elapce" keywords={[`Elapce`, `real estate`, `overseas`]} />
@@ -116,6 +123,11 @@ const IndexPage = () => {
         text={heroIndexData.contentData.text}
         ctaText={heroIndexData.contentData.ctaText}
         ctaInfo={heroIndexData.contentData.ctaInfo}
+      />
+      <BestOptions 
+        reversed={true}
+        title={BestOptionsData.title}
+        text={BestOptionsData.text}
       />
       <TrustBar 
         headline={trustBarData.headline}
