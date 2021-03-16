@@ -53,8 +53,11 @@ const HeroSection = ({
 export default HeroSection
 
 const HeroWrapper = styled.div`
-  margin-bottom:240px;
+  margin-bottom:300px;
   position: relative;
+  @media ${device.laptopL} {
+    margin-bottom: 240px;
+  }
   @media ${device.mobileL} {
     margin-bottom: 200px;
   }

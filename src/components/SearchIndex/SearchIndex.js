@@ -82,6 +82,7 @@ const ListItamVariants = styled.li`
 
 const SearchLocation = styled.input`
     max-width:480px;
+    font-family: Lato;
     margin:0 auto;
     width: 100%;
     background: #FFFFFF;
@@ -327,14 +328,21 @@ const SubscribeSubHead = styled.h5`
 
 const SubscribeTitle = styled.h2`
     font-size: ${({ type }) => {
-      if (type === "small") return "42px"
-      if (type === "big") return "48px"
+      if (type === "small") return "46px"
+      if (type === "big") return "54px"
     }};
     line-height: 1.15;
-    margin-bottom:24px;
+    margin:48px 0;
     font-weight: 500;
     color: #4B535F;
     font-family:Gotham Pro;
+    @media ${device.laptopL} {
+      font-size: ${({ type }) => {
+        if (type === "small") return "36px"
+        if (type === "big") return "42px"
+      }};
+      margin:0 0 24px;
+    }
     @media ${device.laptop} {
       font-size: ${({ type }) => {
         if (type === "small") return "32px"
