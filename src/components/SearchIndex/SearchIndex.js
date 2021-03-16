@@ -338,8 +338,8 @@ const SubscribeTitle = styled.h2`
     font-family:Gotham Pro;
     @media ${device.laptopL} {
       font-size: ${({ type }) => {
-        if (type === "small") return "36px"
-        if (type === "big") return "42px"
+        if (type === "small") return "42px"
+        if (type === "big") return "46px"
       }};
       margin:0 0 24px;
     }
@@ -475,4 +475,6 @@ const StyledButton = styled.button`
       height:50px;
     }
 `
+
+
 

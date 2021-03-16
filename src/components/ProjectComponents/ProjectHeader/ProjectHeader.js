@@ -1,12 +1,18 @@
 import React, { useRef } from 'react';
 import styled from "styled-components"
-import { ElapceImage } from "../../BlockElements/BlockElements"
 import { Container } from "../../layoutComponents"
 import { device } from "../../../styles/constants"
 import Img from 'gatsby-image'
 
 import Slider from "react-slick"
-
+import {
+    FacebookIcon,
+    TwitterIcon,
+} from "react-share";
+import {
+    TwitterShareButton,
+    FacebookShareButton,
+} from "react-share";
 
 const settings = {
     autoplay: false,
@@ -42,6 +48,7 @@ const ProjectHeader = ({
   images,
   projectName,
   data,
+  location,
   ...otherProps
 }) => {
   const sliderRef = useRef();
@@ -51,11 +58,28 @@ const ProjectHeader = ({
   const gotoPrev = () => {
       sliderRef.current.slickPrev();
   }
-  
+  const shareUrl = `https://www.elapce.com`
 
   
   return (
       <HeaderWrapper>
+        <Container>
+            <HeaderInfo>
+                <ProjectName>{projectName}</ProjectName>
+                <ShareLinks>
+                    <IconsWrapper>
+                    <FacebookShareButton url={shareUrl}>
+                        <FacebookIcon size={40} round={true}></FacebookIcon>
+                    </FacebookShareButton>
+                    <TwitterShareButton url={shareUrl}>
+                        <TwitterIcon size={40} round={true}></TwitterIcon>
+                    </TwitterShareButton>
+                    </IconsWrapper>
+                </ShareLinks>
+            </HeaderInfo>
+           
+        </Container>
+       
         <SLiderWrapper>
             <Slider 
                 ref={sliderRef}
@@ -84,6 +108,7 @@ const ProjectHeader = ({
                 Prev
             </SlickPrev>
         </ButtonsWrapper>
+       
       </HeaderWrapper>
   )
 }
@@ -104,7 +129,7 @@ const HeaderWrapper = styled.div`
         padding-top: 60px!important;
         padding-bottom: 100px!important;
         @media ${device.tablet} {
-            padding:48px 0 !important; 
+            padding:12px 0 !important; 
         }
     }
     .slick-center {
@@ -149,10 +174,7 @@ const Slide = styled.div`
 `
 
 const ButtonsWrapper = styled.div`
-
-`
-
-const SlickNext = styled.button`
+ button {
     position: absolute;
     z-index: 10;
     cursor: pointer;
@@ -160,76 +182,111 @@ const SlickNext = styled.button`
     transform: translateY(-50%);
     padding: 0;
     border: none;
-    border-radius: 80px 0 0 80px;
-    transform-origin: 100% 0;
     width: 40px;
     height: 80px;
+    border: none;
+    transform-origin: 0 0;
     overflow: hidden;
-    right: 0;
     background: hsla(0,0%,100%,.5);
     color: transparent;
     outline: none;
     transition:all .2s ease-in-out;
+    @media ${device.tablet} {
+        top: 60%;
+    }
     ::before {
         content: '';
         position: absolute;
-        left: 20px;
         top: 50%;
         display: block;
-        border-right: 2px solid #3c3956;
-        border-bottom: 2px solid #3c3956;
         width: 12px;
         height: 12px;
-        transform: translate(-50%, -50%) rotate(-45deg);
     }
     :hover {
         background:white;
         transform:scale(1.2) translateY(-50%);
     }
+ }
+`
+
+const SlickNext = styled.button`
+    border-radius: 80px 0 0 80px;
+    right: 0;
+    ::before {
+        left: 20px;
+        border-right: 2px solid #3c3956;
+        border-bottom: 2px solid #3c3956;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
 `
 
 
 
 const SlickPrev = styled.button`
-    position: absolute;
-    z-index: 10;
-    cursor: pointer;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0;
-    border: none;
-    width: 40px;
-    height: 80px;
-    overflow: hidden;
     border-radius: 0 80px 80px 0;
-    transform-origin: 0 0;
     left:0;
-    background: hsla(0,0%,100%,.5);
-    color: transparent;
-    outline: none;
-    transition:all .2s ease-in-out;
     ::before {
-        content: '';
-        position: absolute;
         right: 20px;
-        top: 50%;
-        display: block;
         border-left: 2px solid #3c3956;
         border-top: 2px solid #3c3956;
-        width: 12px;
-        height: 12px;
         float: right;
         transform: translate(50%, -50%) rotate(-45deg);
     }
-    :hover {
-        background:white;
-        transform:scale(1.2) translateY(-50%);
+`
+
+const ProjectName = styled.h2`
+    color:#4B535F;
+    font-family: Gotham Pro;
+    margin-top:24px;
+    font-size:58px;
+    line-height:1.05;
+    margin-bottom:0;
+    @media ${device.tablet} {
+        font-size:42px;
+        margin:0;
+    }
+    @media ${device.mobileL} {
+        font-size:28px;
     }
 `
 
 
 
+const ShareLinks = styled.div`
+  max-width:220px;
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  button {
+    outline:none;
+  }
+  @media ${device.tablet} {
+    max-width:120px;
+    padding: 0 16px;
+    margin:0.8em auto;
+    svg {
+      width:32px;
+      height:32px;
+    }
+  }
+`
 
+const IconsWrapper = styled.div`
+  width:100%;
+  max-width:100px;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+`
+
+const HeaderInfo = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+`
 
 
 

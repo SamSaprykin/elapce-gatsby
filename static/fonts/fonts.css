@@ -52,3 +52,24 @@
   src: url("Lato-Regular.woff2") format("woff2");
   font-display: swap;
 }
+
+@font-face {
+  font-family: Museo;
+  font-weight: 400;
+  src: url("MuseoSansCyrl-100.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Museo;
+  font-weight: 500;
+  src: url("MuseoSansCyrl_2.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Museo;
+  font-weight: 600;
+  src: url("MuseoSansCyrl_3.otf") format("opentype");
+  font-display: swap;
+}
