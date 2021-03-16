@@ -45,3 +45,10 @@
       format("woff");
   font-display: swap;
 }
+
+@font-face {
+  font-family: Lato;
+  font-weight: 400;
+  src: url("Lato-Regular.woff2") format("woff2");
+  font-display: swap;
+}
