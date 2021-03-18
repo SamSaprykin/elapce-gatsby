@@ -92,7 +92,7 @@ const ProjectHeader = ({
                     return (
                         <SlideWrapper className="slide-wrapper" key={index}>
                             <Slide>
-                                <Img fluid={image.node.childImageSharp.fluid} />
+                                <Img fluid={image.fluid} />
                             </Slide>
                         </SlideWrapper>
                     )

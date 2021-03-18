@@ -72,7 +72,7 @@ const ProjectDescription = ({
               )}
               {price && (
                 <Price>
-                  {price}
+                  от {price} евро
                 </Price>
               )}
               {

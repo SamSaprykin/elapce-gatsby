@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-xperiencify",
+  "name": "gatsby-elapce",
   "private": true,
-  "description": "Gatsby Xperiencify project",
+  "description": "Gatsby Elapce",
   "version": "0.1.0",
   "author": "Murray Gray",
   "dependencies": {
@@ -13,6 +13,7 @@
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-antd": "^2.2.0",
+    "gatsby-plugin-env-variables": "^2.0.0",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^3.0.18",
     "gatsby-plugin-preact": "^5.0.0",
@@ -28,7 +29,9 @@
     "gatsby-source-filesystem": "^2.1.9",
     "gatsby-transformer-remark": "^3.0.0",
     "gatsby-transformer-sharp": "^2.3.16",
+    "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.21",
+    "mapbox-gl": "^2.1.1",
     "preact": "^10.5.12",
     "preact-render-to-string": "^5.1.12",
     "prop-types": "^15.7.2",

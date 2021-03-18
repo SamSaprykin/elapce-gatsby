@@ -49,6 +49,14 @@ module.exports = {
       }
     }, 
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `2h0bct4o9jya`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    {
       resolve: "gatsby-plugin-anchor-links",
       options: {
         offset: -180
@@ -58,6 +66,14 @@ module.exports = {
     `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-antd`, 
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: [
+          "MAPBOX_TOKEN",
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-offline`,
       options: {

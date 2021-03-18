@@ -8,7 +8,7 @@ import ElapceButton from "./ElapceButton/ElapceButton"
 
 const tempNavLinks = [
   {
-    linkTo:"/objects",
+    linkTo:"/projects",
     title:"Каталог",
     type:"simple", 
   },
