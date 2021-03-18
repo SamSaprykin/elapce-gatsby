@@ -17,26 +17,29 @@ const ProjectMap = ({lat,lon, name,mapPointImage}) => {
   
 
   useEffect(() => {
-    setTimeout(function(){
-      const map = new mapboxgl.Map({
-        container: mapContainerRef.current,
-        accessToken: process.env.MAPBOX_TOKEN,
-        style: "mapbox://styles/mapbox/light-v10",
-        // Empire State Building [lng, lat]
-        center: [lon, lat],
-        zoom: 10,
-      })
-      map.addControl(new mapboxgl.NavigationControl(), "top-right")
-      var el = document.createElement('div');
-      el.className = 'marker';
-      setMap(map)
-      new mapboxgl.Marker(el)
-        .setLngLat([lon, lat])
-        .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-        .setHTML(`<img src=${mapPointImage.src}></img><span>` + name + `</span>`))
-        .addTo(map);
-      return () => map.remove()
-    },2000)
+    if (typeof window !== `undefined`) {
+      setTimeout(function(){
+        const map = new mapboxgl.Map({
+          container: mapContainerRef.current,
+          accessToken: process.env.MAPBOX_TOKEN,
+          style: "mapbox://styles/mapbox/light-v10",
+          // Empire State Building [lng, lat]
+          center: [lon, lat],
+          zoom: 10,
+        })
+        map.addControl(new mapboxgl.NavigationControl(), "top-right")
+        var el = document.createElement('div');
+        el.className = 'marker';
+        setMap(map)
+        new mapboxgl.Marker(el)
+          .setLngLat([lon, lat])
+          .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML(`<img src=${mapPointImage.src}></img><span>` + name + `</span>`))
+          .addTo(map);
+        return () => map.remove()
+      },2000)
+    }
+    
     
   }, [])
  
@@ -80,7 +83,6 @@ const MapContainer = styled.div`
   }
   
 `
-
 
 
 
